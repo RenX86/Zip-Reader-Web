@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIP Reader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="header-title">ZIP Reader</div>
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </div>
+
+    <div id="container">
+        <div id="file-explorer">
+            <button id="select-directory" onclick="selectDirectory()">Select Directory</button>
+            <div id="file-list"></div>
+        </div>
+
+        <div id="image-display"></div>
+    </div>
+    
+    <!-- Include JSZip library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="Script.js"></script>
+</body>
+</html>

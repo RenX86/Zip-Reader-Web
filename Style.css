@@ -1,0 +1,190 @@
+:root {
+    --bg-color: #f3f3f3;
+    --text-color: #333;
+    --header-bg: #0078d4;
+    --header-text: white;
+    --container-bg: #ffffff;
+    --border-color: #e1e1e1;
+    --hover-bg: #f0f0f0;
+    --caption-bg: #f9f9f9;
+}
+
+body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --header-bg: #1e4a6e;
+    --header-text: #e0e0e0;
+    --container-bg: #2d2d2d;
+    --border-color: #444;
+    --hover-bg: #3a3a3a;
+    --caption-bg: #363636;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 5px;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 1.5em;
+    /* You can adjust the following properties to change the text position */
+    /*margin-right: 20px;*/  /* Pushes the text to the left */
+    /* Uncomment and adjust the following line if you want to add some space from the left edge */
+    margin-left: 900px; 
+}
+
+#theme-toggle {
+    margin-right: 60px;
+    background-color: transparent;
+    border: 2px solid var(--header-text);
+    color: var(--header-text);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--header-text);
+    color: var(--header-bg);
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#file-explorer {
+    width: 250px;
+    background-color: var(--container-bg);
+    padding: 15px;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#file-list {
+    margin-top: 15px;
+}
+
+#image-display {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--container-bg);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+
+    /* New properties for controlling dimensions */
+    width: calc(100% - 250px); /* Subtracts the width of #file-explorer */
+    max-width: 1200px; /* You can adjust this value */
+    margin: 0 auto; /* Centers the display if it's smaller than the available space */
+}
+
+.folder, .file {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.folder:hover, .file:hover {
+    background-color: var(--hover-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.folder::before, .file::before {
+    margin-right: 10px;
+}
+
+.folder::before {
+    content: "📁";
+}
+
+.file::before {
+    content: "📄";
+}
+
+.image-item {
+    margin: 25px 0;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 100%;
+    width: 800px;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0 0;
+}
+
+.image-caption {
+    padding: 15px;
+    background-color: var(--caption-bg);
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    word-break: break-all;
+    font-size: 0.9em;
+}
+
+#select-directory {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-size: 1em;
+}
+
+#select-directory:hover {
+    background-color: #005a9e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+    }
+    #file-explorer {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    #image-display {
+        width: 100%;
+        max-width: 100%;
+    }   
+}
