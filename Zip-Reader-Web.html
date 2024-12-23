@@ -7,20 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="header">
-        <div class="header-title">ZIP Reader</div>
-        <button id="theme-toggle">Toggle Dark Mode</button>
-    </div>
+    <header id="header" role="banner">
+        <h1 class="header-title">ZIP Reader</h1>
+        <button id="theme-toggle" aria-label="Toggle between light and dark modes">Toggle Dark Mode</button>
+    </header>
 
-    <div id="container">
-        <div id="file-explorer">
+    <main id="container" role="main">
+        <section id="file-explorer" aria-labelledby="explorer-heading">
+            <h2 id="explorer-heading">File Explorer</h2>
             <button id="select-directory" onclick="selectDirectory()">Select Directory</button>
-            <div id="file-list"></div>
-        </div>
+            <input type="text" id="search-box" placeholder="Search files..." aria-label="Search files">
+            <div id="file-list" role="tree">
+                <div id="files-container"></div>
+            </div>
+        </section>
 
-        <div id="image-display"></div>
-    </div>
-    
+        <section id="image-display" aria-labelledby="image-display-heading">
+            <h2 id="image-display-heading">Image Display</h2>
+            <div id="loader" style="display: none;" role="status" aria-live="polite">Loading...</div>
+            <div id="error-message" role="alert" style="display: none; color: red;"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ZIP Reader</p>
+    </footer>
+
     <!-- Include JSZip library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script src="Script.js"></script>

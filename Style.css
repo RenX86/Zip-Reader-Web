@@ -7,6 +7,7 @@
     --border-color: #e1e1e1;
     --hover-bg: #f0f0f0;
     --caption-bg: #f9f9f9;
+    --focus-outline: #005a9e;
 }
 
 body.dark-mode {
@@ -18,6 +19,7 @@ body.dark-mode {
     --border-color: #444;
     --hover-bg: #3a3a3a;
     --caption-bg: #363636;
+    --focus-outline: #3399ff;
 }
 
 body {
@@ -35,7 +37,7 @@ body {
 #header {
     background-color: var(--header-bg);
     color: var(--header-text);
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     font-size: 1.5em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -45,22 +47,17 @@ body {
 }
 
 .header-title {
-    font-size: 1.5em;
-    /* You can adjust the following properties to change the text position */
-    /*margin-right: 20px;*/  /* Pushes the text to the left */
-    /* Uncomment and adjust the following line if you want to add some space from the left edge */
-    margin-left: 900px; 
+    margin: 0;
 }
 
 #theme-toggle {
-    margin-right: 60px;
     background-color: transparent;
     border: 2px solid var(--header-text);
     color: var(--header-text);
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 0.8em;
+    font-size: 0.9em;
     transition: background-color 0.2s, color 0.2s;
 }
 
@@ -89,6 +86,20 @@ body {
     margin-top: 15px;
 }
 
+#search-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#search-box:focus {
+    outline: 2px solid var(--focus-outline);
+    border-color: var(--focus-outline);
+}
+
 #image-display {
     flex-grow: 1;
     padding: 20px;
@@ -99,11 +110,6 @@ body {
     align-items: center;
     overflow-y: auto;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-
-    /* New properties for controlling dimensions */
-    width: calc(100% - 250px); /* Subtracts the width of #file-explorer */
-    max-width: 1200px; /* You can adjust this value */
-    margin: 0 auto; /* Centers the display if it's smaller than the available space */
 }
 
 .folder, .file {
@@ -118,6 +124,10 @@ body {
 .folder:hover, .file:hover {
     background-color: var(--hover-bg);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.folder:focus, .file:focus {
+    outline: 2px solid var(--focus-outline);
 }
 
 .folder::before, .file::before {
@@ -153,7 +163,7 @@ body {
     background-color: var(--caption-bg);
     text-align: center;
     border-radius: 0 0 10px 10px;
-    word-break: break-all;
+    word-break: break-word;
     font-size: 0.9em;
 }
 
@@ -172,6 +182,11 @@ body {
 #select-directory:hover {
     background-color: #005a9e;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#loader {
+    font-size: 1.2em;
+    color: var(--text-color);
 }
 
 @media (max-width: 768px) {
